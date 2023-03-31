@@ -7,10 +7,16 @@ const startGameButton = document.getElementById("startGame");
 const karl1 = document.getElementById("karl1");
 const karl2 = document.getElementById("karl2");
 const karl3 = document.getElementById("karl3");
-const rickyLaugh = document.getElementById("rickyLaugh"); // Add this line
+const rickyLaugh = document.getElementById("rickyLaugh");
 
 let score = 0;
 let timeLeft = 30;
+
+function moveRicky(event) {
+    ricky.style.left = `${event.pageX}px`;
+    ricky.style.top = `${event.pageY}px`;
+    ricky.style.display = "block";
+}
 
 startGameButton.addEventListener("click", () => {
     karl.addEventListener("mouseover", () => {
@@ -19,16 +25,28 @@ startGameButton.addEventListener("click", () => {
         moveKarl();
         playRandomVoiceLine();
 
-        if (score % 10 === 0) { // Add this condition to play Ricky's laugh every 10 points
+        if (score % 10 === 0) {
             rickyLaugh.play();
         }
     });
 
-    document.addEventListener("mousemove", (event) => {
-        ricky.style.left = `${event.pageX}px`;
-        ricky.style.top = `${event.pageY}px`;
-        ricky.style.display = "block";
-    });
+    document.addEventListener("mousemove", moveRicky);
+
+    // Add touch event listeners for mobile devices
+    document.addEventListener("touchstart", (event) => {
+        event.preventDefault();
+        moveRicky(event.touches[0]);
+    }, { passive: false });
+
+    document.addEventListener("touchmove", (event) => {
+        event.preventDefault();
+        moveRicky(event.touches[0]);
+    }, { passive: false });
+
+    document.addEventListener("touchend", (event) => {
+        event.preventDefault();
+        ricky.style.display = "none";
+    }, { passive: false });
 
     moveKarl();
     countdown();
