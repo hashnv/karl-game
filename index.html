@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karl's Hover Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="background"> <!-- Add this div for the background -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+            <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="white" />
+            <circle cx="50" cy="50" r="30" stroke="black" stroke-width="3" fill="white" />
+        </svg>
+    </div>
+    <div id="game">
+        <img id="karl" src="karl.png" alt="Karl Pilkington">
+        <img id="ricky" src="ricky.png" alt="Ricky Gervais">
+    </div>
+    <div id="scoreboard">
+        Score: <span id="score">0</span> | Time Left: <span id="time">30</span>
+    </div>
+    <audio id="karl1" src="karl1.mp3"></audio>
+    <audio id="karl2" src="karl2.mp3"></audio>
+    <audio id="karl3" src="karl3.mp3"></audio>
+    <audio id="rickyLaugh" src="rickyLaugh.mp3"></audio>
+    <button id="startGame">Start Game</button>
+    <script src="script.js"></script>
+</body>
+</html>

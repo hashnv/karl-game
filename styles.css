@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keep the background behind the game content */
+}
+
+#game {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#karl {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    cursor: none;
+    transition: all 0.5s ease;
+    z-index: 2; /* Add this line to give Karl's image a higher z-index value */
+}
+
+#ricky {
+    position: absolute;
+    width: 76px;
+    height: 59px;
+    display: none;
+    pointer-events: none;
+    z-index: 1; /* Add this line to give Ricky's image a lower z-index value */
+}
+
+#scoreboard {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+}
